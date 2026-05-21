@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DLS Shop | Buy Players</title>
+    <title>DLS Shop | Items Shop</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800&display=swap');
 
@@ -28,20 +28,12 @@
         }
 
         @keyframes gradient-bg {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* 1, 2, 3 va 4-sahifalar bilan BIR XIL: Chap Menyu (Sidebar) */
+        /* Barcha sahifalar bilan BIR XIL: Chap Menyu (Sidebar) */
         aside {
             position: fixed;
             top: 0;
@@ -76,22 +68,22 @@
         }
 
         aside ul li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         aside ul li a {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.8);
             display: block;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 8px;
             transition: all 0.3s ease;
             text-align: center;
             letter-spacing: 1px;
         }
 
-        aside ul li a:hover {
+        aside ul li a:hover, aside ul li a.active {
             background: linear-gradient(90deg, #1b5db0, #6e3399);
             color: #fff;
             text-shadow: 0 0 8px #ffcc00;
@@ -101,9 +93,9 @@
         .inp {
             width: 100%;
             padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             color: white;
             outline: none;
             font-size: 0.9rem;
@@ -112,11 +104,11 @@
 
         .inp:focus {
             border-color: aquamarine;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.2);
         }
 
         .topbar {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0,0,0,0.3);
             padding: 15px;
             border-radius: 10px;
             text-align: center;
@@ -141,37 +133,35 @@
 
         section {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 30px;
+            font-size: 3.5rem;
             letter-spacing: 2px;
             text-align: center;
-            background: linear-gradient(45deg, #00ffcc, #ffcc00);
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ff00ff, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* O'yinchilar Kartalari Konteyneri */
-        .sold-con {
+        /* Mahsulotlar Kartalari */
+        .items-grid {
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 5px;
         }
 
-        .sold-card {
+        .item-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 20px;
-            text-align: center;
             width: 280px;
+            text-align: center;
             backdrop-filter: blur(5px);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
@@ -180,70 +170,63 @@
             justify-content: space-between;
         }
 
-        .sold-card:hover {
-            transform: translateY(-10px);
-            border-color: #ff00ff;
-            box-shadow: 0 10px 25px rgba(255, 0, 255, 0.3);
+        .item-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ffcc;
+            box-shadow: 0 10px 25px rgba(0, 255, 204, 0.2);
         }
 
-        .sold-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: contain;
-            border-radius: 12px;
+        /* Vaqtinchalik ramzlar uchun (Rasm joyiga) */
+        .item-icon {
+            font-size: 4.5rem;
+            margin: 15px 0;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
         }
 
-        .price {
+        .item-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: gold;
-            margin-top: 15px;
+            font-size: 1.6rem;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 5px;
+            color: #fff;
         }
 
-        /* Statistika Jadvali */
-        table {
-            margin-top: 50px;
-            width: 100%;
-            max-width: 700px;
-            border-collapse: collapse;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        th,
-        td {
-            padding: 15px;
-            text-align: center;
-        }
-
-        th {
-            background: linear-gradient(135deg, #6e3399, #1b5db0);
-            font-family: 'Bebas Neue', sans-serif;
-            color: gold;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        td {
-            font-size: 0.95rem;
+        .item-category {
+            font-size: 0.8rem;
+            color: #aaa;
+            text-transform: uppercase;
             font-weight: 600;
-            line-height: 1.8;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            color: #e0e0e0;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
 
-        tr:last-child td {
-            border-bottom: none;
+        .item-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-bottom: 15px;
         }
+
+        .buy-btn {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            background: transparent;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            padding: 8px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background: #00ffcc;
+            color: #050505;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
     </style>
 </head>
 
@@ -264,9 +247,9 @@
                 <li><a href="shop-items.html" class="active">Items Shop</a></li>
             </ul>
         </header>
-
+        
         <div>
-            <input class="inp" type="text" placeholder="Search o'yinchilar...">
+            <input class="inp" type="text" placeholder="Search buyumlar...">
             <div class="topbar" style="margin-top: 15px;">
                 <div>💰 12,500</div>
                 <div>🏆 4.5 ⭐⭐⭐⭐⭐</div>
@@ -276,42 +259,41 @@
 
     <main>
         <section>
-            <h1>Buy offer 💎💎💎</h1>
-
-            <div class="sold-con">
-                <div class="sold-card">
-                    <img src="anderson.png" alt="Elliot Anderson">
-                    <div class="price">Price 💰: 1200</div>
+            <h1>ITEMS SHOP</h1>
+            
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-category">Custom Kit</div>
+                    <div class="item-icon">👕</div>
+                    <div class="item-title">Gold Edition Kit</div>
+                    <div class="item-price">💰 500 Coins</div>
+                    <button class="buy-btn">BUY ITEM</button>
                 </div>
 
-                <div class="sold-card">
-                    <img src="el.png" alt="Souffan El Karauani">
-                    <div class="price">Price 💰: 950</div>
+                <div class="item-card">
+                    <div class="item-category">Club Logo</div>
+                    <div class="item-icon">🛡️</div>
+                    <div class="item-title">Neon Dragon Logo</div>
+                    <div class="item-price">💰 350 Coins</div>
+                    <button class="buy-btn">BUY ITEM</button>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-category">Stadium Upgrade</div>
+                    <div class="item-icon">🏟️</div>
+                    <div class="item-title">+5,000 Capacity</div>
+                    <div class="item-price">💰 1,500 Coins</div>
+                    <button class="buy-btn">BUY ITEM</button>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-category">Player Boot</div>
+                    <div class="item-icon">👟</div>
+                    <div class="item-title">Speed Booster Boots</div>
+                    <div class="item-price">💰 800 Coins</div>
+                    <button class="buy-btn">BUY ITEM</button>
                 </div>
             </div>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>ELLIOT ANDERSON</th>
-                        <th>SOUFFAN EL KARAUANI</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            Shooting: 62 <br>
-                            Speed: 82 <br>
-                            Stamina: 90
-                        </td>
-                        <td>
-                            Shooting: 70 <br>
-                            Speed: 76 <br>
-                            Stamina: 89
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </section>
     </main>
 

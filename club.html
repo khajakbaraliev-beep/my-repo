@@ -28,9 +28,17 @@
         }
 
         @keyframes gradient-bg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* 1-sahifa bilan BOSHQA BIR XIL: Chap Menyu (Sidebar) */
@@ -93,9 +101,9 @@
         .inp {
             width: 100%;
             padding: 12px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
             outline: none;
             font-size: 0.9rem;
@@ -104,11 +112,11 @@
 
         .inp:focus {
             border-color: aquamarine;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .topbar {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
             padding: 15px;
             border-radius: 10px;
             text-align: center;
@@ -200,37 +208,6 @@
             letter-spacing: 1px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
-
-        /* Mobil qurilmalar uchun moslashuvchanlik */
-        @media (max-width: 992px) {
-            aside {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 20px;
-            }
-
-            aside ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-                margin: 15px 0;
-            }
-
-            aside ul li { margin-bottom: 0; }
-
-            main {
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            .club-card {
-                max-width: 100%;
-            }
-        }
     </style>
 </head>
 
@@ -247,9 +224,11 @@
                 <li><a href="club.html">Club</a></li>
                 <li><a href="myclub.html">My Club</a></li>
                 <li><a href="legenbords.html">Leaderboards</a></li>
+                <li><a href="rewards.html">Daily Rewards</a></li>
+                <li><a href="shop-items.html" class="active">Items Shop</a></li>
             </ul>
         </header>
-        
+
         <div>
             <input class="inp" type="text" placeholder="Search o'yinchilar...">
             <div class="topbar" style="margin-top: 15px;">
@@ -264,24 +243,24 @@
             <div class="club-con">
                 <div class="club-card">
                     <div class="clublar"><img src="Dreamtean.png" alt="Dream Team"></div>
-                    <span class="price">Price: 30 coin 💰💰</span>
+                    <span class="price">Price: 30 coin 💰💰 Name: Dream fc</span>
                 </div>
 
                 <div class="club-card">
                     <div class="clublar"><img src="alievteam.png" alt="Aliev Team"></div>
-                    <span class="price">Price: 3000 coin 💰💰</span>
+                    <span class="price">Price: 3000 coin 💰💰 Name: Dream fc</span>
                 </div>
             </div>
 
             <div class="club-con">
                 <div class="club-card">
                     <div class="clublar"><img src="dlsacc.png" alt="DLS Acc"></div>
-                    <span class="price">Price: 100 coin 💰💰</span>
+                    <span class="price">Price: 100 coin 💰💰 Name: Dream fc</span>
                 </div>
 
                 <div class="club-card">
                     <div class="clublar"><img src="accdls.png" alt="Acc DLS"></div>
-                    <span class="price">Price: 20 coin 💰💰</span>
+                    <span class="price">Price: 20 coin 💰💰 Name: Dream fc</span>
                 </div>
             </div>
         </section>
