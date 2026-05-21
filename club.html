@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(blue, red);
+            background-attachment: fixed;
+            font-family: sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            color: white;
+        }
+
+        /* Chap yon menyu */
+        aside {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background: rgb(110, 51, 153);
+            padding: 20px;
+            transition: 0.3s;
+            z-index: 10;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+
+
+        li h3 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            justify-content: space-around;
+            padding: 40px;
+        }
+
+        aside:hover {
+            background: linear-gradient(Blue, red);
+        }
+
+        aside {
+            transition: 0.3s;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background: rgba(110, 51, 153, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .topbar {
+            margin-top: 40px;
+        }
+
+        /* Asosiy kontent qismi */
+        main {
+            margin-left: 250px;
+            /* Menyudan o'ngga surish uchun */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        /* Klasterlar konteyneri */
+        .clubs {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            /* Qatorlar orasidagi masofa */
+            width: 100%;
+            max-width: 1000px;
+            /* Maksimal kenglik */
+        }
+
+        /* Har bir qator */
+        .club-con {
+            display: flex;
+            justify-content: center;
+            /* Qatordagi elementlarni o'rtaga tekislash */
+            gap: 50px;
+            /* Kartalar orasidagi masofa */
+            flex-wrap: wrap;
+        }
+
+        a {
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: gold;
+        }
+
+        /* Har bir klub kartasi (Rasm va Narx birga) */
+        .club-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Ichidagi rasm va matnni o'rtalash */
+            gap: 15px;
+            /* Rasm va narx orasidagi masofa */
+        }
+
+        .clublar img {
+            width: 350px;
+            /* O'lchamini biroz moslashtirdik */
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10%;
+            transition: 0.3s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .clublar img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Narxlar stili */
+        .price {
+            color: greenyellow;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .logo img {
+            width: 200px;
+            border: solid;
+            border-radius: 20%;
+            transition: 0.5s;
+            border-color: black;
+        }
+
+        .logo img:hover {
+            transform: scale(1.4);
+        }
+    </style>
+</head>
+
+<body>
+    <aside>
+        <header>
+            <div class="logo">
+                <img src="https://i.ytimg.com/vi/4krOQ_EcW7Y/maxresdefault.jpg" alt="">
+            </div>
+            <ul>
+                <li>
+                    <h3><a href="index.html">Home </a></h3>
+                </li>
+                <li>
+                    <h3><a href="index.html">Players </a></h3>
+                </li>
+                <li>
+                    <h3><a href="club.html">Club </a></h3>
+                </li>
+                <li>
+                    <h3><a href="myclub.html">My Club </a></h3>
+                </li>
+                <li>
+                    <h3><a href="legenbords.html">Leaderboards</a></h3>
+                </li>
+                <li>
+                    <input class="inp" type="text" placeholder="Search players...">
+                </li>
+            </ul>
+
+            <div class="topbar">
+                <div>
+                    <h3>💰 12,500</h3>
+                </div>
+                <div>
+                    <h3>🏆 4,5⭐⭐⭐⭐⭐</h3>
+                </div>
+            </div>
+        </header>
+    </aside>
+
+    <main>
+        <section class="clubs">
+            <div class="club-con">
+                <div class="club-card">
+                    <div class="clublar"><img src="Dreamtean.png" alt="Dream Team"></div>
+                    <span class="price">Price: 30 coin 💰💰</span>
+                </div>
+
+                <div class="club-card">
+                    <div class="clublar"><img src="alievteam.png" alt="Aliev Team"></div>
+                    <span class="price">Price: 3000 coin 💰💰</span>
+                </div>
+            </div>
+
+            <div class="club-con">
+                <div class="club-card">
+                    <div class="clublar"><img src="dlsacc.png" alt="DLS Acc"></div>
+                    <span class="price">Price: 100 coin 💰💰</span>
+                </div>
+
+                <div class="club-card">
+                    <div class="clublar"><img src="accdls.png" alt="Acc DLS"></div>
+                    <span class="price">Price: 20 coin 💰💰</span>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
