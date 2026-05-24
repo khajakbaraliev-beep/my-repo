@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DLS Shop | Build Your Legend Team</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght={400;600;800}&display=swap');
 
         /* Umumiy Sozlamalar */
         * {
@@ -144,7 +143,7 @@
         /* Intro & Video */
         .intro {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .intro h1 {
@@ -171,7 +170,6 @@
         }
 
         .dls-video-container {
-            position: relative;
             width: 100%;
             max-width: 850px;
             aspect-ratio: 16 / 9;
@@ -192,10 +190,94 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: 3rem;
             text-align: center;
-            margin: 60px 0 40px;
+            margin: 40px 0;
             letter-spacing: 2px;
             color: #fff;
         }
+
+        /* ─── XUDDI RASMDAGIDEK TRUE 3D RING EFFEKTI ─── */
+        .ring-section {
+            margin: 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .ring-wrapper {
+            margin: 40px auto;
+            perspective: 1200px;
+            /* Chuqurlik effekti (3D realizm) */
+            width: 300px;
+            height: 200px;
+            position: relative;
+        }
+
+        .ring-box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            /* Doimiy va silliq aylanish animatsiyasi */
+            animation: rotate-ring-animation 16s linear infinite;
+        }
+
+        /* Sichqoncha olib borilganda to'xtash */
+        .ring-box:hover {
+            animation-play-state: paused;
+        }
+
+        .ring-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            background: transparent;
+            /* Kartalarning orqa qismi ko'rinib qolmasligi uchun */
+            backface-visibility: visible;
+        }
+
+        .ring-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+        }
+
+        /* 
+           To'rtta karta aylana bo'ylab 90 darajadan taqsimlanadi. 
+           translateZ(300px) ularni markazdan tashqariga surib, haqiqiy halqa hosil qiladi.
+        */
+        .ring-card:nth-child(1) {
+            transform: rotateY(0deg) translateZ(320px);
+        }
+
+        .ring-card:nth-child(2) {
+            transform: rotateY(90deg) translateZ(320px);
+        }
+
+        .ring-card:nth-child(3) {
+            transform: rotateY(180deg) translateZ(320px);
+        }
+
+        .ring-card:nth-child(4) {
+            transform: rotateY(270deg) translateZ(320px);
+        }
+
+        @keyframes rotate-ring-animation {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        /* ────────────────────────────────────────────── */
 
         /* O'yinchilar Grid Tizimi */
         .father-con {
@@ -265,16 +347,15 @@
 
         /* Purple Players Bo'limi */
         .aksiya {
-            margin-top: 60px;
+            margin-top: 40px;
             background: rgba(110, 51, 153, 0.15);
-            padding: 40px 20px;
             border-radius: 20px;
             border: 1px solid rgba(238, 130, 238, 0.2);
-            text-align: center;
-        }
-
-        section {
-            margin-left: 250px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .pur {
@@ -282,8 +363,8 @@
             font-size: 2.8rem;
             color: #ff00ff;
             text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
-            margin-bottom: 35px;
             letter-spacing: 1px;
+            text-align: center;
         }
 
         .anti-pur {
@@ -299,6 +380,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
+            width: 100%;
         }
 
         .card-2 {
@@ -359,15 +441,9 @@
             box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
         }
 
-        /* 3D Ring Slayder (New Players) */
-        .scene {
-            perspective: 1000px;
-            margin: 80px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow: hidden;
-            padding: 40px 0;
+        /* Yangi O'yinchilar Bo'limi */
+        .heroo {
+            margin-top: 40px;
         }
 
         .neon {
@@ -375,89 +451,46 @@
             text-shadow: 0 0 15px rgba(173, 255, 47, 0.6);
             font-family: 'Bebas Neue', sans-serif;
             font-size: 3rem;
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .ring {
-            width: 180px;
-            height: 240px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: spin 20s linear infinite;
+        .new-players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
         .card1 {
-            position: absolute;
-            width: 100%;
-            height: 100%;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card1:hover {
+            transform: scale(1.05);
         }
 
         .card1 img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            display: block;
         }
 
-        .card1:nth-child(1) {
-            transform: rotateY(0deg) translateZ(300px);
-        }
-
-        .card1:nth-child(2) {
-            transform: rotateY(40deg) translateZ(300px);
-        }
-
-        .card1:nth-child(3) {
-            transform: rotateY(80deg) translateZ(300px);
-        }
-
-        .card1:nth-child(4) {
-            transform: rotateY(120deg) translateZ(300px);
-        }
-
-        .card1:nth-child(5) {
-            transform: rotateY(160deg) translateZ(300px);
-        }
-
-        .card1:nth-child(6) {
-            transform: rotateY(200deg) translateZ(300px);
-        }
-
-        .card1:nth-child(7) {
-            transform: rotateY(240deg) translateZ(300px);
-        }
-
-        .card1:nth-child(8) {
-            transform: rotateY(280deg) translateZ(300px);
-        }
-
-        .card1:nth-child(9) {
-            transform: rotateY(320deg) translateZ(300px);
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotateY(0deg);
-            }
-
-            to {
-                transform: rotateY(360deg);
-            }
-        }
-
-        /* Statisika Jadvallari */
+        /* Statistika Jadvallari */
         .box {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            margin-top: 30px;
         }
 
         table {
-            width: 290px;
+            width: 100%;
+            max-width: 290px;
             background: linear-gradient(135deg, #00bfff, #1b5db0);
             border-radius: 14px;
             border-collapse: collapse;
@@ -484,7 +517,7 @@
 
         /* Gorizontal Skrol Slayderlar */
         .new-cons {
-            margin: 50px 0;
+            margin: 40px 0;
         }
 
         .hel {
@@ -536,7 +569,6 @@
         .new-card img {
             width: 130px;
             height: 280px;
-
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -557,8 +589,6 @@
             margin-left: 260px;
             font-size: 0.9rem;
         }
-
-        /* Mobil Moslashuvchanlik */
     </style>
 </head>
 
@@ -607,55 +637,55 @@
             </div>
         </section>
 
+        <!-- 3D Ring Showcase Bo'limi (Xuddi rasmdagidek simmetrik) -->
+
         <h1 class="section-title">Most Valuable Players</h1>
 
         <div class="father-con">
             <div class="player-grid">
-                <div class="card" data-aos="fade-up">
+                <div class="card">
                     <div class="img-wrapper"><img src="rafael.png" alt="Rafael"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="img-wrapper"><img src="lewandowski.png" alt="Player"></div>
-                    <span>Price: 30💰</span>
+                <div class="card">
+                    <div class="img-wrapper"><img src="lewandowski.png" alt="Player"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
                     <div class="img-wrapper"><img src="cubarsi.png" alt="Cubarsi"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up">
+                <div class="card">
                     <div class="img-wrapper"><img src="martinerz.png" alt="Martinez"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
                     <div class="img-wrapper"><img src="rice.png" alt="Rice"></div><span>Price: 30💰</span>
                 </div>
-
             </div>
 
             <div class="player-grid">
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
                     <div class="img-wrapper"><img src="odegard.png" alt="Odegaard"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up">
+                <div class="card">
                     <div class="img-wrapper"><img src="tonali.png" alt="Tonali"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
                     <div class="img-wrapper"><img src="pulsic.png" alt="Pulisic"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
                     <div class="img-wrapper"><img src="sommer.png" alt="Sommer"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up">
+                <div class="card">
                     <div class="img-wrapper"><img src="mbappe.png" alt="Mbappe"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
                     <div class="img-wrapper"><img src="messi.png" alt="Messi"></div><span>Price: 30💰</span>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
                     <div class="img-wrapper"><img src="yamal.png" alt="Yamal"></div><span>Price: 30💰</span>
                 </div>
             </div>
         </div>
 
-        <section class="aksiya" data-aos="zoom-in">
+        <section class="aksiya">
             <h1 class="pur">
                 Purple Players <span class="anti-pur">2 Days Left</span>
             </h1>
@@ -680,96 +710,96 @@
             </div>
             <div class="card-2-container">
                 <div class="card-2 legend">
-                    <div class="img-wrapper"><img src="suarez.png" alt="Svilar"></div>
+                    <div class="img-wrapper"><img src="suarez.png" alt="Suarez"></div>
                     <a href="buy.html" class="btn-buy-ply">Buy NOW</a>
                 </div>
                 <div class="card-2 legend">
-                    <div class="img-wrapper"><img src="rterson.png" alt="Tiago"></div>
+                    <div class="img-wrapper"><img src="rterson.png" alt="Rterson"></div>
                     <a href="buy.html" class="btn-buy-ply">Buy NOW</a>
                 </div>
                 <div class="card-2 legend">
-                    <div class="img-wrapper"><img src="sar.png" alt="El"></div>
+                    <div class="img-wrapper"><img src="sar.png" alt="Sar"></div>
                     <a href="buy.html" class="btn-buy-ply">Buy NOW</a>
                 </div>
                 <div class="card-2 legend">
-                    <div class="img-wrapper"><img src="de.png" alt="Luka"></div>
+                    <div class="img-wrapper"><img src="de.png" alt="De"></div>
                     <a href="buy.html" class="btn-buy-ply">Buy NOW</a>
                 </div>
             </div>
         </section>
 
-        <section class="heroo">
-            <div class="scene">
-                <h1 class="neon">New Players on SHOP</h1>
-                <div class="ring">
-                    <div class="card1"><img src="theo.hennendez.png" alt="Theo"></div>
-                    <div class="card1"><img src="harrykane.png" alt="Kane"></div>
-                    <div class="card1"><img src="theo.hennendez.png" alt="Theo"></div>
-                    <div class="card1"><img src="harrykane.png" alt="Kane"></div>
-                    <div class="card1"><img src="theo.hennendez.png" alt="Theo"></div>
-                    <div class="card1"><img src="harrykane.png" alt="Kane"></div>
-                    <div class="card1"><img src="theo.hennendez.png" alt="Theo"></div>
-                    <div class="card1"><img src="harrykane.png" alt="Kane"></div>
-                    <div class="card1"><img src="theo.hennendez.png" alt="Theo"></div>
+        <section class="ring-section">
+            <h1 class="neon">New Players on SHOP</h1>
+
+            <div class="ring-wrapper">
+                <div class="ring-box">
+                    <div class="ring-card"><img src="harrykane.png" alt="Harry Kane"></div>
+                    <div class="ring-card"><img src="theo.hennendez.png" alt="Theo Hernandez"></div>
+                    <div class="ring-card"><img src="harrykane.png" alt="Harry Kane Copy"></div>
+                    <div class="ring-card"><img src="theo.hennendez.png" alt="Theo Hernandez Copy"></div>
                 </div>
-            </div>
-
-            <div class="box">
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Theo Hernandez</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Spe: 79</td>
-                            <td>Acc: 79</td>
-                        </tr>
-                        <tr>
-                            <td>Sta: 79</td>
-                            <td>Str: 79</td>
-                        </tr>
-                        <tr>
-                            <td>Con: 79</td>
-                            <td>Pas: 79</td>
-                        </tr>
-                        <tr>
-                            <td>SHo: 79</td>
-                            <td>Tac: 79</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Harry Kane</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Spe: 89</td>
-                            <td>Acc: 89</td>
-                        </tr>
-                        <tr>
-                            <td>Sta: 89</td>
-                            <td>Str: 89</td>
-                        </tr>
-                        <tr>
-                            <td>Con: 89</td>
-                            <td>Pas: 89</td>
-                        </tr>
-                        <tr>
-                            <td>SHo: 89</td>
-                            <td>Tac: 89</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </section>
 
-        <section class="new-cons" data-aos="fade-left">
+
+
+
+        <div class="box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Theo Hernandez</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Spe: 79</td>
+                        <td>Acc: 79</td>
+                    </tr>
+                    <tr>
+                        <td>Sta: 79</td>
+                        <td>Str: 79</td>
+                    </tr>
+                    <tr>
+                        <td>Con: 79</td>
+                        <td>Pas: 79</td>
+                    </tr>
+                    <tr>
+                        <td>SHo: 79</td>
+                        <td>Tac: 79</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Harry Kane</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Spe: 89</td>
+                        <td>Acc: 89</td>
+                    </tr>
+                    <tr>
+                        <td>Sta: 89</td>
+                        <td>Str: 89</td>
+                    </tr>
+                    <tr>
+                        <td>Con: 89</td>
+                        <td>Pas: 89</td>
+                    </tr>
+                    <tr>
+                        <td>SHo: 89</td>
+                        <td>Tac: 89</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </section>
+
+        <section class="new-cons">
             <h1 class="hel">PLAYERS OF THE SEASON <div class="loader"></div>
             </h1>
             <div class="new-fat">
@@ -784,7 +814,7 @@
             </div>
         </section>
 
-        <section class="new-cons" data-aos="fade-right">
+        <section class="new-cons">
             <h1 class="hel">FRANCE BEST OF THE SEASON <div class="loader"></div>
             </h1>
             <div class="new-fat">
@@ -803,15 +833,6 @@
     <footer>
         <p>© 2026 DLS SHOP | Barcha huquqlar himoyalangan.</p>
     </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-    </script>
 </body>
 
 </html>

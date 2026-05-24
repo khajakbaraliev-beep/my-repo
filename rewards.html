@@ -8,7 +8,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800&display=swap');
 
-        /* Umumiy Sozlamalar */
         * {
             margin: 0;
             padding: 0;
@@ -28,20 +27,12 @@
         }
 
         @keyframes gradient-bg {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Barcha sahifalar bilan BIR XIL: Chap Menyu (Sidebar) */
+        /* shop-items.html dan olingan Sidebar */
         aside {
             position: fixed;
             top: 0;
@@ -57,7 +48,6 @@
             flex-direction: column;
             justify-content: space-between;
             z-index: 1000;
-            transition: all 0.4s ease;
         }
 
         .logo img {
@@ -76,23 +66,22 @@
         }
 
         aside ul li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         aside ul li a {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: rgba(255, 255, 255, 0.8);
             display: block;
-            padding: 8px 12px;
+            padding: 10px 15px;
             border-radius: 8px;
             transition: all 0.3s ease;
             text-align: center;
             letter-spacing: 1px;
         }
 
-        aside ul li a:hover,
-        aside ul li a.active {
+        aside ul li a:hover, aside ul li a.active {
             background: linear-gradient(90deg, #1b5db0, #6e3399);
             color: #fff;
             text-shadow: 0 0 8px #ffcc00;
@@ -108,12 +97,6 @@
             color: white;
             outline: none;
             font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .inp:focus {
-            border-color: aquamarine;
-            background: rgba(255, 255, 255, 0.2);
         }
 
         .topbar {
@@ -130,7 +113,7 @@
             margin: 5px 0;
         }
 
-        /* Asosiy Kontent Maydoni */
+        /* Asosiy Kontent */
         main {
             margin-left: 260px;
             padding: 40px;
@@ -149,7 +132,7 @@
             width: 100%;
             text-align: center;
             backdrop-filter: blur(10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         h1 {
@@ -168,31 +151,42 @@
             margin-bottom: 40px;
         }
 
-        /* Sovg'a qutisi va Omad Charxi dizayni */
         .gift-box {
             font-size: 6rem;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite alternate;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: shake 2s infinite ease-in-out;
         }
 
-        @keyframes bounce {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-15px);
-            }
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            25% { transform: rotate(-5deg) translateY(-5px); }
+            75% { transform: rotate(5deg) translateY(-5px); }
         }
 
-        /* Bonus olish tugmasi */
+        .reward-info-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed rgba(0, 255, 204, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+
+        .reward-info-box strong {
+            color: #00ffcc;
+        }
+
         .claim-btn {
+            display: inline-block;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.8rem;
             background: linear-gradient(135deg, #00ffcc, #0099ff);
             color: #050505;
             border: none;
-            padding: 15px 40px;
+            padding: 12px 45px;
             border-radius: 50px;
             cursor: pointer;
             letter-spacing: 1px;
@@ -208,52 +202,19 @@
             color: #fff;
         }
 
-        /* Olingan sovg'a haqida matn */
-        .reward-status {
-            margin-top: 25px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            color: #adff2f;
-            min-height: 35px;
+        /* Mobil */
+        @media (max-width: 768px) {
+            aside { width: 70px; padding: 20px 10px; }
+            aside .logo, aside input, aside .topbar, aside ul li a { display: none; }
+            main { margin-left: 70px; padding: 20px; }
+            h1 { font-size: 2.5rem; }
         }
-
-        /* Mobil qurilmalar uchun moslashuvchanlik */
-
-            aside {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 20px;
-            }
-
-            aside ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-                margin: 15px 0;
-            }
-
-            aside ul li {
-                margin-bottom: 0;
-            }
-
-            main {
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
     </style>
 </head>
 
 <body>
 
+    <!-- shop-items.html dan olingan Sidebar -->
     <aside>
         <header>
             <div class="logo">
@@ -266,34 +227,34 @@
                 <li><a href="myclub.html">My Club</a></li>
                 <li><a href="legenbords.html">Leaderboards</a></li>
                 <li><a href="rewards.html" class="active">Daily Rewards</a></li>
-                <li><a href="shop-items.html" >Items Shop</a></li>
+                <li><a href="shop-items.html">Items Shop</a></li>
             </ul>
         </header>
 
         <div>
-            <input class="inp" type="text" placeholder="Search o'yinchilar...">
+            <input class="inp" type="text" placeholder="Jihoz qidirish...">
             <div class="topbar" style="margin-top: 15px;">
-                <div>💰 <span id="balance">12,500</span></div>
-                <div>🏆 4.5 ⭐⭐⭐⭐⭐</div>
+                <div>💰 12,500</div>
+                <div>💎 150</div>
             </div>
         </div>
     </aside>
 
+    <!-- Asosiy Kontent -->
     <main>
         <section class="rewards-container">
             <h1>DAILY REWARDS</h1>
             <p class="subtitle">Get free coins every 24 hours to build your dream team!</p>
-
+            
             <div class="gift-box">🎁</div>
-
-            <button class="claim-btn" onclick="getDailyBonus()">CLAIM REWARD</button>
-
-            <div class="reward-status" id="statusText"></div>
+            
+            <div class="reward-info-box">
+                Log in every day to claim your <strong>FREE 500 COINS</strong> reward! Next reward will be available in 24 hours.
+            </div>
+            
+            <a href="index.html" class="claim-btn">CLAIM 500 COINS</a>
         </section>
     </main>
 
-
-
 </body>
-
 </html>
